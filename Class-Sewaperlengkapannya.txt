@@ -1,0 +1,36 @@
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+class PenyewaanPerlengkapanCamp {
+    Penyewa penyewa;
+    PerlengkapanCamp perlengkapan;
+    Date tanggalSewa;
+    int jumlahHariSewa;
+    double totalBiaya;
+    
+    public PenyewaanPerlengkapanCamp (Penyewa penyewa, PerlengkapanCamp perlengkapan, Date tanggalSewa, int JumlahHariSewa) {
+        this.penyewa = penyewa;
+        this.perlengkapan = perlengkapan;
+        this.tanggalSewa = tanggalSewa;
+        this.jumlahHariSewa = jumlahHariSewa;
+        this.totalBiaya = jumlahHariSewa * perlengkapan.hargaPerHari;
+        
+    }
+    
+    public void konfirmasiPenyewaan() {
+        System.out.println("Konfirmasi penyewaan Berhasil.");
+    }
+    
+    public void tampilkanNota() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-DD");
+        System.out.println("=======NOTA PENYEWAAN PERLENGKAPAN CAMP=======");
+        System.out.println("Penyewa = " + penyewa.nama);
+        System.out.println("Alamat = " + penyewa.alamat);
+        System.out.println("NomorKontak = " + penyewa.nomorKontak);
+        System.out.println("Perlengkapan = " + perlengkapan.jenis);
+        System.out.println("Harga Per hari = Rp. " + perlengkapan.hargaPerHari);
+        System.out.println("Tanggal Sewa = " + dateFormat.format(tanggalSewa));
+        System.out.println("Jumlah hari Sewa = " + jumlahHariSewa + "hari");
+        System.out.println("Total Biaya = Rp. " + totalBiaya);
+    }
+}
