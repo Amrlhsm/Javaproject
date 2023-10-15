@@ -42,3 +42,9 @@ public class Main {
         daftarPerlengkapan.add(new PerlengkapanCamp("Sleeping Bag",80.0));
         daftarPerlengkapan.add(new PerlengkapanCamp("Kompor",50.0));
         daftarPerlengkapan.add(new PerlengkapanCamp("Gas",25.0));
+
+        do {    
+            System.out.print("Pilih menu (1/2/3) = ");
+            choice = hsm.nextInt();
+    }
+}
