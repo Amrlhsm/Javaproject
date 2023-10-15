@@ -1,0 +1,9 @@
+class PerlengkapanCamp {
+    String jenis;
+    double hargaPerHari;
+    
+    public PerlengkapanCamp (String jenis, double hargaPerHari) {
+        this.jenis = jenis;
+        this.hargaPerHari = hargaPerHari;
+    }
+}
