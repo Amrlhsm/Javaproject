@@ -1,0 +1,8 @@
+class akun {
+    private String username = "admin";
+    private String password = "admin";
+    
+    public boolean cekLogin(String inputUsername, String inputPassword) {
+        return inputUsername.equals(username) && inputPassword.equals(password);
+    }
+}
