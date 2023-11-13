@@ -46,5 +46,36 @@ public class Main {
         do {    
             System.out.print("Pilih menu (1/2/3) = ");
             choice = hsm.nextInt();
+            switch (choice) {
+                case 1 :
+                    System.out.println("\nDaftar perlengkapan Camp = ");
+                    for (int i = 0; i < daftarPerlengkapan.size(); i++) {
+                        PerlengkapanCamp perlengkapan = daftarPerlengkapan.get(i);
+                        System.out.println((i + 1) + ". " + perlengkapan.jenis + " - Harga Perhari = Rp. " + perlengkapan.hargaPerHari);
+                    }
+                        int pilihanPerlengkapan = hsm.nextInt();
+                        System.out.print("Pilih Perlengkapan yang ingin disewa (1/" + daftarPerlengkapan.size() + "): ");
+                        
+                        if (pilihanPerlengkapan < 1 || pilihanPerlengkapan > daftarPerlengkapan.size()) {
+                            System.out.println("Pilihan tidak valid");
+                            break;
+                        }
+                        System.out.println("Masukan data Penyewa = ");
+                        System.out.println("Nama = "); String namaPenyewa = hsm.next();
+                        System.out.println("Alamat = "); String alamatPenyewa = hsm.next();
+                        System.out.println("Nomor Kontak = "); String nomorKontakPenyewa = hsm.next();
+                        
+                        System.out.print("Masukan tanggal sewa (YYYY-MM-DD) = "); String tanggalSewaStr = hsm.next();
+                        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd"); Date tanggalSewa = dateFormat.parse(tanggalSewaStr);
+                        
+                        System.out.print("Masukan Jumlah Hari Sewa = "); int jumlahHariSewa = hsm.nextInt();
+                        Penyewa penyewa = new Penyewa(namaPenyewa, alamatPenyewa, nomorKontakPenyewa);
+                        PerlengkapanCamp perlengkapan = daftarPerlengkapan.get(pilihanPerlengkapan - 1);
+                        penyewaan = new PenyewaanPerlengkapanCamp(penyewa, perlengkapan, tanggalSewa, jumlahHariSewa);
+                        
+                        penyewaan.konfirmasiPenyewaan();
+                break;
+            }
+        } while (choice != 1);
     }
 }
